@@ -177,7 +177,7 @@ func expressionValid(val string) bool {
 func operatorsValid(ops []uint8) bool {
 	count := len(ops)
 	for i := 0; i < count; i++ {
-		if ops[i] != '+' && ops[i] != '-' {
+		if ops[i] != '+' && ops[i] != '-' && ops[i] != '|' {
 			return false
 		}
 	}
