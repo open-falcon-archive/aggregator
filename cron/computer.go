@@ -7,20 +7,28 @@ func compute(operands []string, operators []uint8, hostname string, valMap map[s
 	}
 
 	vals := queryOperands(operands, hostname, valMap)
-	if len(vals) != count {
-		return val, false
+	if count==2 && operators[0] == '|' {
+		if len(vals) != 1 {
+			return val, false
+		}
+	} else {
+		if len(vals) != count {
+			return val, false
+		}
 	}
+	
 
 	val = vals[0]
 
 	for i := 1; i < count; i++ {
 		if operators[i-1] == '+' {
 			val += vals[i]
+		} else if operators[i-1] == '|' {
+			val = vals[0]
 		} else {
 			val -= vals[i]
 		}
 	}
-
 	return val, true
 }
 

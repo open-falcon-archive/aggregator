@@ -1,6 +1,10 @@
 # Aggregator
 
 集群聚合模块。聚合某集群下的所有机器的某个指标的值，提供一种集群视角的监控体验。
+> 除+,-外增加 ｜ 符号  
+> 集群情况下多服务器很有可能网卡tag不同，有的采集得到，有的报错  
+> invalid or not found 需要解决这个问题  
+> 如net.if.total.bytes/iface=eth2 net.if.total.bytes/iface=eth1
 
 ## 准备工作
 
